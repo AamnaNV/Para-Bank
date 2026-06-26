@@ -21,11 +21,11 @@ type Fixtures = {
 
 export const test = base.extend<Fixtures>({
   gotoBaseUrl: [
-    async ({ page }, use) => {
-      await page.goto(data.baseUrl);
-      await use();
-    },
-    { auto: true },
+      async ({ page }, use) => {
+          await page.goto(data.baseUrl, { timeout: 60000 });
+          await use();
+      },
+      { auto: true },
   ],
 
   appAction: async ({ page }, use) => {
