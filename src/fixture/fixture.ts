@@ -1,10 +1,10 @@
 import { test as base } from "@playwright/test";
 import data from "../testdata/paraBank.json";
-import { RegisterLoginPage } from "../page/registrationLoginPage";
-import { AccountPage } from "../page/accountPage";
-import { FundsPage } from "../page/fundsPage";
-import { LoanPage } from "../page/loanPage";
-import { BillsPage } from "../page/billsPage";
+import { RegisterLoginPage } from "../POM/registrationLoginPage";
+import { AccountPage } from "../POM/accountPage";
+import { FundsPage } from "../POM/fundsPage";
+import { LoanPage } from "../POM/loanPage";
+import { BillsPage } from "../POM/billsPage";
 
 type AppActions = {
   registerLogin: RegisterLoginPage;
