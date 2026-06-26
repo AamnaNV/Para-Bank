@@ -1,17 +1,17 @@
 import { test as base } from "@playwright/test";
 import data from "../testdata/paraBank.json";
-import { RegistrationLoginAction } from "../action/registrationLoginAction";
-import { AccountAction } from "../action/accountAction";
-import { fundsAction } from "../action/fundsAction";
-import { BillsAction } from "../action/billsAction";
-import { LoanAction } from "../action/loanAction";
+import { RegisterLoginPage } from "../page/registrationLoginPage";
+import { AccountPage } from "../page/accountPage";
+import { FundsPage } from "../page/fundsPage";
+import { LoanPage } from "../page/loanPage";
+import { BillsPage } from "../page/billsPage";
 
 type AppActions = {
-  registerLogin: RegistrationLoginAction;
-  account: AccountAction;
-  funds: fundsAction;
-  bills: BillsAction;
-  loan: LoanAction;
+  registerLogin: RegisterLoginPage;
+  account: AccountPage;
+  funds: FundsPage;
+  bills: BillsPage;
+  loan: LoanPage;
 };
 
 type Fixtures = {
@@ -30,11 +30,11 @@ export const test = base.extend<Fixtures>({
 
   appAction: async ({ page }, use) => {
     const appAction: AppActions = {
-      registerLogin: new RegistrationLoginAction(page),
-      account: new AccountAction(page),
-      funds: new fundsAction(page),
-      bills: new BillsAction(page),
-      loan: new LoanAction(page)
+      registerLogin: new RegisterLoginPage(page),
+      account: new AccountPage(page),
+      funds: new FundsPage(page),
+      bills: new BillsPage(page),
+      loan: new LoanPage(page)
     };
     await use(appAction);
   },
